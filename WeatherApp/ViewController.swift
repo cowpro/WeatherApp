@@ -16,6 +16,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var tempLabel: UILabel!
     @IBOutlet weak var weatherDescriptionLabel: UILabel!
     @IBOutlet weak var weatherImageView: UIImageView!
+    @IBOutlet weak var location: UILabel!
+    @IBOutlet weak var humitidyLabel: UILabel!
+    @IBOutlet weak var windLabel: UILabel!
+    
     
     
     override func viewDidLoad() {
@@ -29,8 +33,10 @@ class ViewController: UIViewController {
                     guard let weatherDetails = json["weather"] as? [[String : Any]], let weatherMain = json["main"] as? [String : Any] else {return}
                     let temp = Int(weatherMain["temp"] as? Double ?? 0)
                     let description = (weatherDetails.first?["main"] as? String)?.capitalizingFirstLetter()
+                    let humidity = Int(weatherMain["humidity"] as? Double ?? 0)
+                    let wind = Int(weatherMain["wind"] as? Double ?? 0)
                     DispatchQueue.main.async {
-                        self.setWeather(weather: weatherDetails.first?["main"] as? String, description: description, temp: temp)
+                        self.setWeather(weather: weatherDetails.first?["main"] as? String, description: description, temp: temp, humidity: humidity, wind: wind)
                     }
                 } catch {
                     print("We had an error retriving the weather...")
@@ -39,9 +45,11 @@ class ViewController: UIViewController {
         }
         task.resume()
     }
-    func setWeather(weather: String?, description: String?, temp: Int) {
+    func setWeather(weather: String?, description: String?, temp: Int, humidity: Int, wind: Int) {
         weatherDescriptionLabel.text = description ?? "..."
         tempLabel.text = "\(temp)˚"
+        humitidyLabel.text = "Humidity: \(humidity)%"
+        windLabel.text = "Wind: \(wind) MPH"
         switch weather {
         case "Sunny":
             weatherImageView.image = UIImage(named: "String")
