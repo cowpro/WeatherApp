@@ -21,27 +21,16 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        guard let url = URL(string: "api.openweathermap.org/data/2.5/weather?zip=92127,us&units=imperial&appid=77d981ff25dd24409bb6a0ff411e69d9") else { return }
+        guard let url = URL(string: "https://api.openweathermap.org/data/2.5/weather?zip=92127,us&units=imperial&appid=77d981ff25dd24409bb6a0ff411e69d9") else { return }
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             if let data = data, error == nil {
                 do {
                     guard let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String : Any] else {return}
                     guard let weatherDetails = json["weather"] as? [[String : Any]], let weatherMain = json["main"] as? [String : Any] else {return}
                     let temp = Int(weatherMain["temp"] as? Double ?? 0)
-                    let description = (weatherDetails.first?["description"] as? String)?.capitalizingFirstLetter()
+                    let description = (weatherDetails.first?["main"] as? String)?.capitalizingFirstLetter()
                     DispatchQueue.main.async {
                         self.setWeather(weather: weatherDetails.first?["main"] as? String, description: description, temp: temp)
-                        print ("Begin")
-                        print (data)
-                        print("--")
-                        print (json)
-                        print("--")
-                        print (weatherDetails)
-                        print("--")
-                        print (temp)
-                        print("--")
-                        print (description)
-                        print ("End")
                     }
                 } catch {
                     print("We had an error retriving the weather...")

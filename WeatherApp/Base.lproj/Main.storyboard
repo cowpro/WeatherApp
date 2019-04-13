@@ -18,28 +18,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sunny" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sYU-6j-F9W">
-                                <rect key="frame" x="16" y="31" width="175.5" height="72"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Sunny" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sYU-6j-F9W">
+                                <rect key="frame" x="16" y="31" width="343" height="72"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="72" id="iD3-tq-tkk"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="60"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="69˚" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1vd-Ij-SMf">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="69˚" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1vd-Ij-SMf">
                                 <rect key="frame" x="16" y="111" width="179" height="119.5"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="119.5" id="eB4-tB-0CA"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="100"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Sunny" translatesAutoresizingMaskIntoConstraints="NO" id="gJX-eI-mUl">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Sunny" translatesAutoresizingMaskIntoConstraints="NO" id="gJX-eI-mUl">
                                 <rect key="frame" x="57" y="231" width="260" height="260"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="260" id="JLH-s4-zzm"/>
+                                    <constraint firstAttribute="width" secondItem="gJX-eI-mUl" secondAttribute="height" multiplier="1:1" id="hTy-TY-PrA"/>
+                                    <constraint firstAttribute="height" constant="260" id="o6b-CM-61a"/>
+                                </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="San Diego, California" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zBq-q6-0bn">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="San Diego, California" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zBq-q6-0bn">
                                 <rect key="frame" x="16" y="520" width="346" height="43"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -47,6 +54,18 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.94901960780000005" green="0.96862745100000003" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="gJX-eI-mUl" firstAttribute="top" secondItem="1vd-Ij-SMf" secondAttribute="bottom" constant="0.5" id="2in-mo-Rxg"/>
+                            <constraint firstItem="gJX-eI-mUl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="57" id="85M-Oo-1ks"/>
+                            <constraint firstItem="zBq-q6-0bn" firstAttribute="top" secondItem="gJX-eI-mUl" secondAttribute="bottom" constant="29" id="Hvc-pW-Arz"/>
+                            <constraint firstItem="zBq-q6-0bn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="J14-1E-pGW"/>
+                            <constraint firstItem="1vd-Ij-SMf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="LmT-97-FAV"/>
+                            <constraint firstItem="sYU-6j-F9W" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Sd8-vN-3SM"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zBq-q6-0bn" secondAttribute="trailing" constant="13" id="Sfn-1k-bXY"/>
+                            <constraint firstItem="sYU-6j-F9W" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="11" id="TR3-fV-NX1"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="1vd-Ij-SMf" secondAttribute="trailing" constant="180" id="XQd-w6-5Tb"/>
+                            <constraint firstItem="1vd-Ij-SMf" firstAttribute="top" secondItem="sYU-6j-F9W" secondAttribute="bottom" constant="8" id="ly9-OI-kFh"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
@@ -62,6 +81,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Sunny" width="650" height="659.4840087890625"/>
+        <image name="Sunny" width="800" height="800"/>
     </resources>
 </document>
