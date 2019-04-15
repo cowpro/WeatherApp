@@ -22,10 +22,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var scroll: UIScrollView!
     @IBOutlet weak var place: UILabel!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        let location = "Poway"
+    func getWeather(loc: String) {
+        let location = loc
         guard let url = URL(string: "https://api.openweathermap.org/data/2.5/weather?q=\(location)&units=imperial&appid=77d981ff25dd24409bb6a0ff411e69d9") else { return }
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             if let data = data, error == nil {
@@ -50,6 +48,18 @@ class ViewController: UIViewController {
             }
         }
         task.resume()
+    }
+    
+    @IBAction func searchWeather(_ sender: Any) {
+        let x = searchBar.text?.replacingOccurrences(of: " ", with: "+") ?? ""
+        getWeather(loc: x)
+    }
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+        getWeather(loc: "Poway")
     }
     //MARK SET WEATHER
     func setWeather(weather: String?, description: String?, temp: Int, humidity: Int, windSpeed: Int, windDirection: Int, low: Int, high: Int, city: Any, country: Any) {

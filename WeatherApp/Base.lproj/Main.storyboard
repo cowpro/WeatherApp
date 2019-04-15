@@ -86,7 +86,7 @@
                                                     <color key="titleColor" red="0.94901960780000005" green="0.96862745100000003" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="search:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SKv-E4-9Vl"/>
+                                                    <action selector="searchWeather:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jXN-WV-9kK"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Humidity: 69%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GlU-em-y79">
